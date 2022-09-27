@@ -1,0 +1,45 @@
+{
+  "name": "origo-api",
+  "version": "0.0.1",
+  "description": "API origo",
+  "author": "Emannuell Anjos",
+  "license": "MIT",
+  "repository": "https://github.com/EmannuellAnjos/origo-api",
+  "homepage": "https://github.com/EmannuellAnjos/origo-api",
+  "scripts": {
+    "build": "rm -R ./dist || true && tsc && cp package.json ./dist/package.json",
+    "docker-stop-all": "docker kill $(docker ps -q) || true && docker rm $(docker ps -a -q) || true && docker rmi $(docker images -q) || true",
+    "env-build": "yarn build && docker-compose up --build",
+    "start": "node ./src/main/index.js",
+    "dev": "cp .env.dev ./.env && nodemon --watch 'src/' --exec ts-node ./src/main/index.ts -e ts --ignore __tests__",
+    "sandbox": "cp .env.sandbox ./.env && nodemon --watch 'src/' --exec ts-node ./src/main/index.ts -e ts --ignore __tests__"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "helmet": "^5.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "module-alias": "^2.2.2",
+    "moment": "^2.29.4",
+    "mongo-round": "^1.0.0",
+    "mongodb": "^4.9.1",
+    "morgan": "^1.10.0",
+    "swagger-ui-express": "^4.5.0",
+    "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/jsonwebtoken": "^8.5.5",
+    "@types/node": "^16.9.1",
+    "@types/nodemon": "^1.19.1",
+    "nodemon": "^2.0.19",
+    "ts-node": "^10.1.0",
+    "typescript": "^4.4.3"
+  },
+  "engines": {
+    "node": "16.x"
+  },
+  "_moduleAliases": {
+    "@": "src"
+  }
+}

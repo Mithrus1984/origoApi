@@ -1,0 +1,32 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "esModuleInterop": true,
+        "module": "commonjs",
+        "allowSyntheticDefaultImports": true,
+        "removeComments": true,
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "target": "es2020",
+        "outDir": "./dist/src",
+        "resolveJsonModule": true,
+        "rootDirs": [
+            "src",
+            "tests"
+        ],
+        "baseUrl": "src",
+        "paths": {
+            "@/tests/*": [
+                "../tests/*"
+            ],
+            "@/*": [
+                "*"
+            ]
+        }
+    },
+    "include": [
+        "src",
+        "tests"
+    ],
+    "exclude": []
+}
